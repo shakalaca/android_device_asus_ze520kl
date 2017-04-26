@@ -33,3 +33,5 @@ allow audioserver factory_file:dir { search };
 allow audio_debug factory_file:dir { search };
 allow audio_debug Tfa98xx_cnt_file:file { getattr };
 
+allow audioserver factory_file:file { getattr read open };
+allow audioserver tfa_i2c_device:chr_file { ioctl read write open };
