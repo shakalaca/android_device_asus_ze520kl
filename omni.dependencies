@@ -1,0 +1,20 @@
+[
+  {
+    "remote": "github",
+    "repository": "shakalaca/android_kernel_asus_ze520kl",
+    "revision": "master",
+    "target_path": "kernel/asus/ze520kl"
+  },
+  {
+    "remote": "aosp",
+    "repository": "platform/external/protobuf",
+    "revision": "refs/tags/android-6.0.1_r74",
+    "target_path": "external/protobuf"
+  },
+  {
+    "remote": "aosp",
+    "repository": "platform/external/liblzf",
+    "revision": "refs/tags/android-6.0.1_r74",
+    "target_path": "external/liblzf"
+  }
+]
