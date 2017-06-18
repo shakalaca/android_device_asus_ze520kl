@@ -106,4 +106,14 @@ $(RFS_MSM_MPSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINKS)
 
+WIFI_SYMLINKS := $(TARGET_OUT)/etc/firmware/wlan/prima/
+$(WIFI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@mkdir -p $(dir $@)/prima
+	@rm -f $@/COUNTRY
+	$(hide) ln -sf /factory/COUNTRY $@/COUNTRY
+	@rm -f $@/wifi.nv
+	$(hide) ln -sf /factory/wifi.nv $@/wifi.nv
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WIFI_SYMLINKS)
+
 endif

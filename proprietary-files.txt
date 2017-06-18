@@ -184,6 +184,8 @@ lib/libarcsoft_nighthawk.so
 lib/libarcsoft_panorama_burstcapture.so
 lib/libarcsoft_piczoom.so
 lib/libarcsoft_videostabilizer.so
+lib/libarcsoft_dualcam_optical_zoom.so
+lib/libarcsoft_dualcam_refocus.so
 lib/libsarcsoftface.so
 lib/libsphere3.so
 lib/libmpbase.so
@@ -908,16 +910,18 @@ lib/libxbspk_LaserRgbInterface.so
 lib/libAsusDngCreator.so
 lib/libAsusRGBSensorHAL.so
 lib64/libAsusRGBSensorHAL.so
-lib/libxditk_DIT_MSM8937.so
-lib/libxditk_DIT_MSM8953.so
-lib/libxditk_DIT_MSM8956.so
-lib/libxditk_DIT_MSM8996.so
 lib/libxditk_DIT_Manager.so
 lib/libxditk_ISP.so
 lib/libxditk_arch.so
 lib/libxditk_ditArchLIB.so
 lib/libxditk_ditBSP.so
 lib/libxditk_ditBSP_JNI.so
+lib/libxditk_DIT_MSMv1.so
+#lib/libxditk_DIT_MSM8937.so
+#lib/libxditk_DIT_MSM8953.so
+#lib/libxditk_DIT_MSM8956.so
+#lib/libxditk_DIT_MSM8996.so
+lib/libStereoRectification.so
 lib/OIS_coefficientFW.mem
 lib/OIS_programFW.bin
 bin/RGBSensor_cal
@@ -1001,7 +1005,7 @@ etc/firmware/gxfpa.b05
 etc/firmware/gxfpa.b06
 etc/firmware/gxfpa.mdt
 etc/fpsensortest.sh
-etc/fpservice.sh
+#etc/fpservice.sh
 
 # Radio - factory
 #lib64/libparam.so
@@ -1037,15 +1041,11 @@ etc/sensors/sensor_def_qcomdev.conf
 #lib64/libebtc.so
 #lib/libebtc.so
 
-# fm
-#lib64/fm_helium.so
-#lib64/libfm-hci.so
-#lib64/libfmjni.so
-#lib64/libqcomfm_jni.so
-#lib/fm_helium.so
-#lib/libfm-hci.so
-#lib/libfmjni.so
-#lib/libqcomfm_jni.so
+# Splendid
+bin/GammaSetting
+bin/HSVSetting
+-app/AsusSplendidCommandAgent/AsusSplendidCommandAgent.apk
+#-priv-app/AsusSplendid/AsusSplendid.apk
 
 # misc
 lib64/libfilterpack_facedetect.so
@@ -1063,14 +1063,12 @@ lib64/libgifimage.so
 lib64/libimagepipeline.so
 lib64/libwebp.so
 lib64/libwebpimage.so
-lib64/libantradio.so
 lib64/libbitmaps.so
 lib64/libcrashlytics-envelope.so
 lib64/libcrashlytics.so
 lib64/libmemchunk.so
 lib64/libjni.so
 lib64/libmms_gyro_vstab.so
-lib/libantradio.so
 lib/libcmdthread.so
 lib/libdevicedata.so
 lib/libjni.so
@@ -1092,8 +1090,6 @@ etc/cdma_call_conf.xml
 etc/drc/drc_cfg_5.1.txt
 etc/drc/drc_cfg_AZ.txt
 etc/hcidump.sh
-etc/icesoundconfig.def
-etc/icesoundpresets.def
 etc/init.asus.camera.sh
 etc/init.asus.gesture.sh
 etc/init.asus.keycamera.sh
@@ -1107,11 +1103,7 @@ etc/select_output.sh
 etc/sensors_factory_init.sh
 etc/spkampcal.sh
 etc/tamcid
-etc/wfdconfig.xml
-etc/wfdconfig_le.xml
-etc/wfdconfigsink.xml
 
-framework/com.asus.fm.jar
 framework/ifaamanager.jar
 framework/tcmiface.jar
 framework/uimlpalibrary.jar
@@ -1122,8 +1114,6 @@ bin/SpeakerCalibrationTest
 bin/climax_hostSW
 bin/BackupCalibrationData
 bin/DR_AP_Service
-bin/GammaSetting
-bin/HSVSetting
 bin/IR_sensor_module_number
 bin/KillMediaserver
 bin/LedTest
@@ -1142,12 +1132,7 @@ bin/diag_socket_log
 bin/diag_uart_log
 bin/dun-server
 bin/e_loop
-#bin/fm_qsoc_patches
-#bin/fmconfig
-#bin/fmfactorytest
-#bin/fmfactorytestserver
-#bin/fmhal_service
-bin/fstman
+#bin/fstman
 bin/fw_auto_update.sh
 bin/garden_app
 bin/gpsone_daemon
@@ -1164,7 +1149,7 @@ bin/mmi_debug
 bin/modem_country
 bin/nl_listener
 bin/pktlogconf
-bin/port-bridge
+#bin/port-bridge
 bin/proximity_calibration_start
 bin/proximity_poll_get_proxm
 bin/ptt_socket_app
@@ -1230,3 +1215,10 @@ xbin/netlog.sh
 #bin/fsstress
 #bin/fsstress-run.sh
 #bin/create_pcbid.sh
+
+bin/writeosinfo
+bin/hostapd_cmd
+
+#etc/public.libraries.txt
+vendor/etc/public.libraries.txt
+

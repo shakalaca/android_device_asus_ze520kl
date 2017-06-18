@@ -81,13 +81,13 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8953 \
     audio.r_submix.default \
     audio.usb.default \
+    libbthost_if \
     libaudio-resampler \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
     libvolumelistener \
-    tinymix \
-    audio_amplifier.msm8953
+    tinymix
 
 PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/configs/audio/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
@@ -126,6 +126,16 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:/system/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:/system/etc/usb_audio_policy_configuration.xml
 
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    libfmjni \
+    libqcomfm_jni \
+    libfm-hci \
+    fm_helium \
+    qcom.fmradio \
+    fmhal_service
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8953 \
@@ -136,28 +146,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/msm8996_camera.xml:system/etc/camera/msm8996_camera.xml \
-    $(LOCAL_PATH)/configs/camera/s5k3m2xm_chromatix_bear.xml:system/etc/camera/s5k3m2xm_chromatix_bear.xml \
-    $(LOCAL_PATH)/configs/camera/imx230_qc2002_chromatix.xml:system/etc/camera/imx230_qc2002_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/msm8953_camera.xml:system/etc/camera/msm8953_camera.xml \
-    $(LOCAL_PATH)/configs/camera/ov5670_f5670bq_chromatix.xml:system/etc/camera/ov5670_f5670bq_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov13850_q13v06k_chromatix.xml:system/etc/camera/ov13850_q13v06k_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov5670_chromatix.xml:system/etc/camera/ov5670_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/imx258_chromatix.xml:system/etc/camera/imx258_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/msm8937_camera.xml:system/etc/camera/msm8937_camera.xml \
-    $(LOCAL_PATH)/configs/camera/imx230_qc2002_with_gyro_chromatix.xml:system/etc/camera/imx230_qc2002_with_gyro_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov8858_chromatix.xml:system/etc/camera/ov8858_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/msm8952_camera.xml:system/etc/camera/msm8952_camera.xml \
-    $(LOCAL_PATH)/configs/camera/imx230_chromatix.xml:system/etc/camera/imx230_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k3m2xx_chromatix.xml:system/etc/camera/s5k3m2xx_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/msm8953_camera.xml:system/etc/camera/msm8953_camera.xml \
     $(LOCAL_PATH)/configs/camera/csidtg_camera.xml:system/etc/camera/csidtg_camera.xml \
-    $(LOCAL_PATH)/configs/camera/s5k3l8_mono_chromatix.xml:system/etc/camera/s5k3l8_mono_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov13850_chromatix.xml:system/etc/camera/ov13850_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/imx298_chromatix.xml:system/etc/camera/imx298_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov8856_chromatix.xml:system/etc/camera/ov8856_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/imx258_mono_chromatix.xml:system/etc/camera/imx258_mono_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/csidtg_chromatix.xml:system/etc/camera/csidtg_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k3l8_f3l8yam_chromatix.xml:system/etc/camera/s5k3l8_f3l8yam_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/imx214_chromatix.xml:system/etc/camera/imx214_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/Invensense/VStab_352x288_30_1.conf:system/etc/camera/Invensense/VStab_352x288_30_1.conf \
     $(LOCAL_PATH)/configs/camera/Invensense/VStab_640x480_30_0.conf:system/etc/camera/Invensense/VStab_640x480_30_0.conf \
     $(LOCAL_PATH)/configs/camera/Invensense/VStab_720x480_30_1.conf:system/etc/camera/Invensense/VStab_720x480_30_1.conf \
@@ -172,12 +164,33 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/Invensense/VStab_320x240_30_0.conf:system/etc/camera/Invensense/VStab_320x240_30_0.conf \
     $(LOCAL_PATH)/configs/camera/Invensense/VStab_176x144_30_0.conf:system/etc/camera/Invensense/VStab_176x144_30_0.conf \
     $(LOCAL_PATH)/configs/camera/Invensense/VStab_720x480_30_0.conf:system/etc/camera/Invensense/VStab_720x480_30_0.conf \
-    $(LOCAL_PATH)/configs/camera/ov4688_chromatix.xml:system/etc/camera/ov4688_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov8865_chromatix.xml:system/etc/camera/ov8865_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k3l8_chromatix.xml:system/etc/camera/s5k3l8_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov5695_chromatix.xml:system/etc/camera/ov5695_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx214_chromatix.xml:system/etc/camera/imx214_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx230_qc2002_chromatix.xml:system/etc/camera/imx230_qc2002_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx230_qc2002_with_gyro_chromatix.xml:system/etc/camera/imx230_qc2002_with_gyro_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx230_chromatix.xml:system/etc/camera/imx230_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx258_chromatix.xml:system/etc/camera/imx258_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx258_mono_chromatix.xml:system/etc/camera/imx258_mono_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx298_chromatix.xml:system/etc/camera/imx298_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3m2xm_chromatix_bear.xml:system/etc/camera/s5k3m2xm_chromatix_bear.xml \
     $(LOCAL_PATH)/configs/camera/s5k3m2xm_chromatix.xml:system/etc/camera/s5k3m2xm_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3m2xx_chromatix.xml:system/etc/camera/s5k3m2xx_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3l8_mono_chromatix.xml:system/etc/camera/s5k3l8_mono_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3l8_f3l8yam_chromatix.xml:system/etc/camera/s5k3l8_f3l8yam_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3l8_chromatix.xml:system/etc/camera/s5k3l8_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/csidtg_chromatix.xml:system/etc/camera/csidtg_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov13850_chromatix.xml:system/etc/camera/ov13850_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov13850_q13v06k_chromatix.xml:system/etc/camera/ov13850_q13v06k_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov8858_chromatix.xml:system/etc/camera/ov8858_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov8856_chromatix.xml:system/etc/camera/ov8856_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov8865_chromatix.xml:system/etc/camera/ov8865_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov5670_f5670bq_chromatix.xml:system/etc/camera/ov5670_f5670bq_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov5670_chromatix.xml:system/etc/camera/ov5670_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov5695_chromatix.xml:system/etc/camera/ov5695_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov4688_chromatix.xml:system/etc/camera/ov4688_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/ov2680_chromatix.xml:system/etc/camera/ov2680_chromatix.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/bspcapability.xml:system/etc/bspcapability.xml \
 
 # Display
 PRODUCT_PACKAGES += \
@@ -212,13 +225,17 @@ PRODUCT_PACKAGES += \
     Gello
 
 # GPS
+PRODUCT_PACKAGES += \
+    gps.msm8953 \
+    libgnsspps
+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/flp.conf:system/etc/flp.conf \
-    $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/configs/gps/izat.conf:system/etc/izat.conf \
-    $(LOCAL_PATH)/configs/gps/lowi.conf:system/etc/lowi.conf \
-    $(LOCAL_PATH)/configs/gps/sap.conf:system/etc/sap.conf \
-    $(LOCAL_PATH)/configs/gps/xtwifi.conf:system/etc/xtwifi.conf
+    $(LOCAL_PATH)/gps/etc/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/gps/etc/flp.conf:system/etc/flp.conf \
+    $(LOCAL_PATH)/gps/etc/izat.conf:system/etc/izat.conf \
+    $(LOCAL_PATH)/gps/etc/lowi.conf:system/etc/lowi.conf \
+    $(LOCAL_PATH)/gps/etc/sap.conf:system/etc/sap.conf \
+    $(LOCAL_PATH)/gps/etc/xtwifi.conf:system/etc/xtwifi.conf
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -258,6 +275,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media/capability.xml:system/etc/capability.xml \
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -301,7 +321,8 @@ PRODUCT_PACKAGES += \
     init.asus.usb.rc \
     init.asus.thermald.rc \
     init.asus.debugtool.rc \
-    init.target.rc
+    init.target.rc \
+    sp
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -327,13 +348,13 @@ PRODUCT_PACKAGES += \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    hs20-osu-client
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/fstman.ini:system/etc/wifi/fstman.ini
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -345,6 +366,10 @@ PRODUCT_PACKAGES += \
     libcurl \
     tcpdump \
     wcnss_service
+
+PRODUCT_PACKAGES += \
+    fstman \
+    fstman.ini
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -362,8 +387,250 @@ PRODUCT_PACKAGES += \
     blkid \
     mke2fs
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+# ANT+
+PRODUCT_PACKAGES += \
+    antradio_app \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
 
-PRODUCT_GMS_CLIENTID_BASE := android-asus
+PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
+
+# ASUS Splendid
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W07.txt:/system/etc/firmware/phone_ct/BOE/LUT_W07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C01.txt:/system/etc/firmware/phone_ct/BOE/LUT_C01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C03.txt:/system/etc/firmware/phone_ct/BOE/LUT_C03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W02.txt:/system/etc/firmware/phone_ct/BOE/LUT_W02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W10.txt:/system/etc/firmware/phone_ct/BOE/LUT_W10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C05.txt:/system/etc/firmware/phone_ct/BOE/LUT_C05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C04.txt:/system/etc/firmware/phone_ct/BOE/LUT_C04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W06.txt:/system/etc/firmware/phone_ct/BOE/LUT_W06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_RdWeak.txt:/system/etc/firmware/phone_ct/BOE/LUT_RdWeak.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_Rd02.txt:/system/etc/firmware/phone_ct/BOE/LUT_Rd02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W09.txt:/system/etc/firmware/phone_ct/BOE/LUT_W09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_DEF.txt:/system/etc/firmware/phone_ct/BOE/LUT_DEF.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C02.txt:/system/etc/firmware/phone_ct/BOE/LUT_C02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W04.txt:/system/etc/firmware/phone_ct/BOE/LUT_W04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_Rd03.txt:/system/etc/firmware/phone_ct/BOE/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C07.txt:/system/etc/firmware/phone_ct/BOE/LUT_C07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C06.txt:/system/etc/firmware/phone_ct/BOE/LUT_C06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_Rd01.txt:/system/etc/firmware/phone_ct/BOE/LUT_Rd01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W01.txt:/system/etc/firmware/phone_ct/BOE/LUT_W01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W05.txt:/system/etc/firmware/phone_ct/BOE/LUT_W05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C08.txt:/system/etc/firmware/phone_ct/BOE/LUT_C08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W08.txt:/system/etc/firmware/phone_ct/BOE/LUT_W08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_W03.txt:/system/etc/firmware/phone_ct/BOE/LUT_W03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_RdStrong.txt:/system/etc/firmware/phone_ct/BOE/LUT_RdStrong.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C09.txt:/system/etc/firmware/phone_ct/BOE/LUT_C09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/BOE/LUT_C10.txt:/system/etc/firmware/phone_ct/BOE/LUT_C10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W07.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C01.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C03.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W02.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W10.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C05.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C04.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W06.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_RdWeak.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_RdWeak.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_Rd02.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_Rd02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W09.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_DEF.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_DEF.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C02.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W04.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_Rd03.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C07.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C06.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_Rd01.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_Rd01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W01.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W05.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C08.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W08.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_W03.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_W03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_RdStrong.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_RdStrong.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C09.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P5/LUT_C10.txt:/system/etc/firmware/phone_ct/TM5P5/LUT_C10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W07.txt:/system/etc/firmware/phone_ct/TXD/LUT_W07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C01.txt:/system/etc/firmware/phone_ct/TXD/LUT_C01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C03.txt:/system/etc/firmware/phone_ct/TXD/LUT_C03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W02.txt:/system/etc/firmware/phone_ct/TXD/LUT_W02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W10.txt:/system/etc/firmware/phone_ct/TXD/LUT_W10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C05.txt:/system/etc/firmware/phone_ct/TXD/LUT_C05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C04.txt:/system/etc/firmware/phone_ct/TXD/LUT_C04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W06.txt:/system/etc/firmware/phone_ct/TXD/LUT_W06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_RdWeak.txt:/system/etc/firmware/phone_ct/TXD/LUT_RdWeak.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_Rd02.txt:/system/etc/firmware/phone_ct/TXD/LUT_Rd02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W09.txt:/system/etc/firmware/phone_ct/TXD/LUT_W09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_DEF.txt:/system/etc/firmware/phone_ct/TXD/LUT_DEF.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C02.txt:/system/etc/firmware/phone_ct/TXD/LUT_C02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W04.txt:/system/etc/firmware/phone_ct/TXD/LUT_W04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_Rd03.txt:/system/etc/firmware/phone_ct/TXD/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C07.txt:/system/etc/firmware/phone_ct/TXD/LUT_C07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C06.txt:/system/etc/firmware/phone_ct/TXD/LUT_C06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_Rd01.txt:/system/etc/firmware/phone_ct/TXD/LUT_Rd01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W01.txt:/system/etc/firmware/phone_ct/TXD/LUT_W01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W05.txt:/system/etc/firmware/phone_ct/TXD/LUT_W05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C08.txt:/system/etc/firmware/phone_ct/TXD/LUT_C08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W08.txt:/system/etc/firmware/phone_ct/TXD/LUT_W08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_W03.txt:/system/etc/firmware/phone_ct/TXD/LUT_W03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_RdStrong.txt:/system/etc/firmware/phone_ct/TXD/LUT_RdStrong.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C09.txt:/system/etc/firmware/phone_ct/TXD/LUT_C09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TXD/LUT_C10.txt:/system/etc/firmware/phone_ct/TXD/LUT_C10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W07.txt:/system/etc/firmware/phone_ct/CTC/LUT_W07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C01.txt:/system/etc/firmware/phone_ct/CTC/LUT_C01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C03.txt:/system/etc/firmware/phone_ct/CTC/LUT_C03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W02.txt:/system/etc/firmware/phone_ct/CTC/LUT_W02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W10.txt:/system/etc/firmware/phone_ct/CTC/LUT_W10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C05.txt:/system/etc/firmware/phone_ct/CTC/LUT_C05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C04.txt:/system/etc/firmware/phone_ct/CTC/LUT_C04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W06.txt:/system/etc/firmware/phone_ct/CTC/LUT_W06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_RdWeak.txt:/system/etc/firmware/phone_ct/CTC/LUT_RdWeak.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_Rd02.txt:/system/etc/firmware/phone_ct/CTC/LUT_Rd02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W09.txt:/system/etc/firmware/phone_ct/CTC/LUT_W09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_DEF.txt:/system/etc/firmware/phone_ct/CTC/LUT_DEF.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C02.txt:/system/etc/firmware/phone_ct/CTC/LUT_C02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W04.txt:/system/etc/firmware/phone_ct/CTC/LUT_W04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_Rd03.txt:/system/etc/firmware/phone_ct/CTC/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C07.txt:/system/etc/firmware/phone_ct/CTC/LUT_C07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C06.txt:/system/etc/firmware/phone_ct/CTC/LUT_C06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_Rd01.txt:/system/etc/firmware/phone_ct/CTC/LUT_Rd01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W01.txt:/system/etc/firmware/phone_ct/CTC/LUT_W01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W05.txt:/system/etc/firmware/phone_ct/CTC/LUT_W05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C08.txt:/system/etc/firmware/phone_ct/CTC/LUT_C08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W08.txt:/system/etc/firmware/phone_ct/CTC/LUT_W08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_W03.txt:/system/etc/firmware/phone_ct/CTC/LUT_W03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_RdStrong.txt:/system/etc/firmware/phone_ct/CTC/LUT_RdStrong.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C09.txt:/system/etc/firmware/phone_ct/CTC/LUT_C09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/CTC/LUT_C10.txt:/system/etc/firmware/phone_ct/CTC/LUT_C10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W07.txt:/system/etc/firmware/phone_ct/LCE/LUT_W07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C01.txt:/system/etc/firmware/phone_ct/LCE/LUT_C01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C03.txt:/system/etc/firmware/phone_ct/LCE/LUT_C03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W02.txt:/system/etc/firmware/phone_ct/LCE/LUT_W02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W10.txt:/system/etc/firmware/phone_ct/LCE/LUT_W10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C05.txt:/system/etc/firmware/phone_ct/LCE/LUT_C05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C04.txt:/system/etc/firmware/phone_ct/LCE/LUT_C04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W06.txt:/system/etc/firmware/phone_ct/LCE/LUT_W06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_RdWeak.txt:/system/etc/firmware/phone_ct/LCE/LUT_RdWeak.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_Rd02.txt:/system/etc/firmware/phone_ct/LCE/LUT_Rd02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W09.txt:/system/etc/firmware/phone_ct/LCE/LUT_W09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_DEF.txt:/system/etc/firmware/phone_ct/LCE/LUT_DEF.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C02.txt:/system/etc/firmware/phone_ct/LCE/LUT_C02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W04.txt:/system/etc/firmware/phone_ct/LCE/LUT_W04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_Rd03.txt:/system/etc/firmware/phone_ct/LCE/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C07.txt:/system/etc/firmware/phone_ct/LCE/LUT_C07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C06.txt:/system/etc/firmware/phone_ct/LCE/LUT_C06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_Rd01.txt:/system/etc/firmware/phone_ct/LCE/LUT_Rd01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W01.txt:/system/etc/firmware/phone_ct/LCE/LUT_W01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W05.txt:/system/etc/firmware/phone_ct/LCE/LUT_W05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C08.txt:/system/etc/firmware/phone_ct/LCE/LUT_C08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W08.txt:/system/etc/firmware/phone_ct/LCE/LUT_W08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_W03.txt:/system/etc/firmware/phone_ct/LCE/LUT_W03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_RdStrong.txt:/system/etc/firmware/phone_ct/LCE/LUT_RdStrong.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C09.txt:/system/etc/firmware/phone_ct/LCE/LUT_C09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/LCE/LUT_C10.txt:/system/etc/firmware/phone_ct/LCE/LUT_C10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W07.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C01.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C03.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W02.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W10.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C05.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C04.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W06.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_RdWeak.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_RdWeak.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_Rd02.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_Rd02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W09.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_DEF.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_DEF.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C02.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W04.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_Rd03.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C07.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C06.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_Rd01.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_Rd01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W01.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W05.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C08.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W08.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_W03.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_W03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_RdStrong.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_RdStrong.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C09.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/phone_ct/TM5P2/LUT_C10.txt:/system/etc/firmware/phone_ct/TM5P2/LUT_C10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/asussplendid_config.xml:/system/etc/firmware/Splendid/asussplendid_config.xml \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/LUT_Rd03.txt:/system/etc/firmware/Splendid/LUT/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W07.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C01.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C03.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W02.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W10.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C05.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C04.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W06.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_RdWeak.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_RdWeak.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_Rd02.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_Rd02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W09.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_DEF.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_DEF.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C02.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W04.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_Rd03.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C07.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C06.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_Rd01.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_Rd01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W01.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W05.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C08.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W08.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_W03.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_W03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_RdStrong.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_RdStrong.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C09.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/BOE/LUT_C10.txt:/system/etc/firmware/Splendid/LUT/BOE/LUT_C10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W07.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C01.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C03.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W02.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W10.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W10.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C05.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C04.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W06.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_RdWeak.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_RdWeak.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_Rd02.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_Rd02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W09.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_DEF.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_DEF.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C02.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C02.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W04.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W04.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_Rd03.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_Rd03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C07.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C07.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C06.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C06.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_Rd01.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_Rd01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W01.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W01.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W05.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W05.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C08.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W08.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W08.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_W03.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_W03.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_RdStrong.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_RdStrong.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C09.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C09.txt \
+    $(LOCAL_PATH)/configs/splendid/firmware/Splendid/LUT/TM/LUT_C10.txt:/system/etc/firmware/Splendid/LUT/TM/LUT_C10.txt
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/asus.hardware.display.splendid.reading_mode.xml:system/etc/permissions/asus.hardware.display.splendid.reading_mode.xml \
+    $(LOCAL_PATH)/configs/permissions/asus.hardware.display.splendid.xml:system/etc/permissions/asus.hardware.display.splendid.xml
+
+PRODUCT_PACKAGES += \
+    AsusSplendidCommandAgent
+
+# FlipCover
+PRODUCT_PACKAGES += \
+    FlipCoverWrapper
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/asus.software.cover3_feature_1.xml:/system/etc/permissions/asus.software.cover3_feature_1.xml \
+    $(LOCAL_PATH)/configs/permissions/asus.hardware.transcover_version3.xml:/system/etc/permissions/asus.hardware.transcover_version3.xml \
+    $(LOCAL_PATH)/configs/permissions/asus.hardware.transcover.xml:/system/etc/permissions/asus.hardware.transcover.xml \
+    $(LOCAL_PATH)/configs/permissions/asus.hardware.transcover_info.xml:/system/etc/permissions/asus.hardware.transcover_info.xml
+
+# dataservice
+PRODUCT_PACKAGES += \
+    rmnetcli
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
