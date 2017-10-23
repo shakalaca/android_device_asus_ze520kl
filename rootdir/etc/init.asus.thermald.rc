@@ -1,0 +1,67 @@
+# ASUS_BSP+++ Shawn_Huang
+# service BSdisable /system/bin/sh /etc/onBodysarDisable.sh
+#         class core
+#         user root
+#         oneshot
+#         disabled
+# ASUS_BSP--- Shawn_Huang
+
+# ASUS_BSP+++ Shawn_Huang
+service shawnA /system/bin/sh /etc/init.asus.thermal_conf.sh
+        class core
+        user root
+        oneshot
+        disabled
+# ASUS_BSP--- Shawn_Huang
+
+# ASUS_BSP+++ Shawn_Huang
+#service set_deftime /system/etc/init.asus.set_time.sh
+#        class core
+#        user root
+#        oneshot
+#        disabled
+# ASUS_BSP--- Shawn_Huang
+
+#service onFgAppChanged /system/bin/onFgAppChanged
+#        class core
+#        user root
+#        oneshot
+#        disabled
+#		seclabel u:r:onFgAppChanged:s0
+		
+# ASUS_BSP+++ Shawn_Huang
+on post-fs-data
+	start shawnA
+# ASUS_BSP--- Shawn_Huang
+
+# ASUS_BSP+++ Show
+on property:sys.boot_completed=1
+	start shawnA
+# ASUS_BSP--- Show
+
+# ASUS_BSP+++ Shawn_Huang set default time
+#on post-fs-data
+#	start set_deftime
+# ASUS_BSP--- Shawn_Huang set default time
+
+# ASUS_BSP+++ ShawnHuang "For disable bodysar"
+# on property:gsm.bodysar.disable=*
+# 	start BSdisable
+# ASUS_BSP--- ShawnHuang "For disable bodysar"
+
+# ASUS_BSP+++ VictorFu "For Ultimate mode & disable thermald"
+#on property:sys.ultimate.mode.enabled=*
+#	start onFgAppChanged
+#on property:sys.thermald.disabled=*
+#        start onFgAppChanged
+# ASUS_BSP--- VictorFu "For Ultimate mode & disable thermald"
+
+# ASUS_BSP+++ VictorFu "For watching foreground app"
+#on property:sys.foregroundapp=*
+#	start onFgAppChanged
+# ASUS_BSP--- VictorFu "For watching foreground app"
+
+# ASUS_BSP+++ VictorFu "For pad mode"
+# on property:sys.config.resolution=*
+# 	start onFgAppChanged
+# ASUS_BSP--- VictorFu "For pad mode"

@@ -1,0 +1,31 @@
+type audio_debug, domain;
+type audio_debug_exec, exec_type, file_type;
+type tfa_log, file_type;
+type tfa_i2c_device, dev_type;
+type Tfa98xx_cnt_file, file_type;
+
+init_daemon_domain(audio_debug)
+
+allow qti_init_shell audio_debug_exec:file { read open };
+
+allow audio_debug self:capability dac_override;
+allow audio_debug shell_exec:file { read open execute_no_trans getattr execute };
+allow audio_debug system_file:file { execute_no_trans };
+allow audio_debug factory_file:dir { search };
+allow audio_debug factory_file:file { open read getattr };
+allow audio_debug system_data_file:dir { add_name };
+allow audio_debug audio_device:chr_file { read write ioctl open };
+allow audio_debug audio_device:dir { search };
+allow audio_debug property_socket:sock_file { write };
+allow audio_debug init:unix_stream_socket { connectto };
+allow audio_debug system_prop:property_service { set };
+
+# TFA
+allow audio_debug tfa_log:file { write open create getattr };
+allow audio_debug i2c_device:chr_file { read write ioctl open };
+allow audio_debug tfa_i2c_device:chr_file { read write ioctl open };
+allow audio_debug Tfa98xx_cnt_file:file { getattr };
+
+allow audioserver factory_file:dir { search open read };
+allow audioserver factory_file:file { getattr read open };
+allow audioserver tfa_i2c_device:chr_file { ioctl read write open };

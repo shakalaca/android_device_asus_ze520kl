@@ -1,0 +1,70 @@
+# Factory
+/factory(/.*)?                          u:object_r:factory_file:s0
+/asusfw(/.*)?                           u:object_r:factory_file:s0
+/dev/block/bootdevice/by-name/factory   u:object_r:factory_block_device:s0
+
+# ASDF
+/asdf(/.*)?                             u:object_r:log_file:s0
+/data/everbootup                        u:object_r:log_file:s0
+/dev/block/bootdevice/by-name/asdf      u:object_r:asdf_block_device:s0
+
+# APD, ADF
+/APD(/.*)?                              u:object_r:demoapp_file:s0
+/ADF(/.*)?                              u:object_r:demoapp_file:s0
+/dev/block/bootdevice/by-name/APD       u:object_r:demoapp_block_device:s0
+/dev/block/bootdevice/by-name/ADF       u:object_r:demoapp_block_device:s0
+
+# Audio
+/system/bin/SpeakerCalibrationTest      u:object_r:audio_debug_exec:s0
+/system/etc/init.asus.audbg.sh          u:object_r:audio_debug_exec:s0
+/system/etc/init.asus.checkaudbg.sh     u:object_r:audio_debug_exec:s0
+/system/etc/select_mic.sh               u:object_r:audio_debug_exec:s0
+/system/etc/select_output.sh            u:object_r:audio_debug_exec:s0
+/system/etc/spkampcal.sh                u:object_r:audio_debug_exec:s0
+/dev/i2c-5                              u:object_r:tfa_i2c_device:s0
+/system/etc/Tfa98xx.cnt                 u:object_r:Tfa98xx_cnt_file:s0
+/data/data/tfa9895_cal_log.txt          u:object_r:tfa_log:s0
+
+# Wifi
+#/system/bin/Wifilogger_app              u:object_r:wcnss_service_exec:s0
+
+# Filesystem
+/system/bin/exfatck                     u:object_r:fsck_exec:s0
+/system/bin/exfatlabel                  u:object_r:blkid_exec:s0
+/system/bin/exfatvsn                    u:object_r:blkid_exec:s0
+/system/bin/ntfsck                      u:object_r:fsck_exec:s0
+
+# Fingerprint
+/dev/goodix_fp                          u:object_r:asus_fingerprint_device:s0
+/system/bin/fpseek                      u:object_r:asus_fingerprint_exec:s0
+/system/bin/gx_fpd                      u:object_r:asus_fingerprint_exec:s0
+/system/bin/gx_fpd_gxfp3                u:object_r:asus_fingerprint_exec:s0
+/system/bin/vfmService                  u:object_r:asus_fingerprint_exec:s0
+/system/etc/fpservice.sh                u:object_r:asus_fingerprint_exec:s0
+
+# Camera
+/dev/asusRgbSensor                      u:object_r:rgb_sensor_device:s0
+/dev/LaserSensor                        u:object_r:dev_ioctl_LaserFocus:s0
+/dev/jpeg0                              u:object_r:jpeg_device:s0
+/data/.tmp(/.*)?                        u:object_r:camera_factory_file:s0
+/data/dit_file(/.*)?                    u:object_r:dit_file:s0
+/data/DITNetworkFile                    u:object_r:dit_file:s0
+
+# gesture
+/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/gesture_mode   u:object_r:sysfs_gesture:s0
+/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/glove_mode     u:object_r:sysfs_gesture:s0
+
+# cpuset
+/dev/cpuset(/.*)?                                u:object_r:cpuset_device:s0
+
+# log
+/data/misc/netmgr(/.*)?                          u:object_r:netmgr_log:s0
+
+# sysinfo
+/dev/block/bootdevice/by-name/sysinfo   u:object_r:sysinfo_block_device:s0
+/system/bin/writeosinfo                 u:object_r:asus_wosinfo_exec:s0
+/system/bin/VerifyVouchers              u:object_r:asus_voucher_exec:s0
+/system/bin/ssn                         u:object_r:asus_ssn_exec:s0
+
+# asusfw
+/dev/block/bootdevice/by-name/asusfw   u:object_r:asusfw_block_device:s0

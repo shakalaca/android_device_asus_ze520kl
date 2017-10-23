@@ -1,0 +1,35 @@
+type cpuset_device, dev_type;
+
+allow perfd cpuset_device:file { open read getattr };
+allow init cpuset_device:dir { mounton };
+allow init cpuset_device:file { create write open };
+
+allow zygote cpuset_device:dir { search };
+allow esepmdaemon cpuset_device:dir { search };
+allow surfaceflinger cpuset_device:dir { search };
+allow per_mgr cpuset_device:dir { search };
+allow bootanim cpuset_device:dir { search };
+allow fingerprintd cpuset_device:dir { search };
+allow mdtpdaemon cpuset_device:dir { search };
+allow gatekeeperd cpuset_device:dir { search };
+allow mediaserver cpuset_device:dir { search };
+allow qseeproxy cpuset_device:dir { search };
+allow rild cpuset_device:dir { search };
+allow netd cpuset_device:dir { search };
+allow location cpuset_device:dir { search };
+allow healthd cpuset_device:dir { search };
+allow audioserver cpuset_device:dir { search };
+allow mediaextractor cpuset_device:dir { search };
+allow mediacodec cpuset_device:dir { search };
+allow keystore cpuset_device:dir { search };
+allow cameraserver cpuset_device:dir { search };
+allow perfd cpuset_device:dir { search };
+allow mediadrmserver cpuset_device:dir { search };
+allow drmserver cpuset_device:dir { search };
+allow logd cpuset_device:dir { search };
+allow installd cpuset_device:dir { search };
+allow audiod cpuset_device:dir { search };
+allow qti_init_shell cpuset_device:dir { search };
+allow shell cpuset_device:dir { search };
+
+allow perfd mediacodec:process { signull };

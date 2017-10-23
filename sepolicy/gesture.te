@@ -1,0 +1,6 @@
+type sysfs_gesture, fs_type, sysfs_type;
+
+allow system_app sysfs_gesture:file { write open getattr };
+allow system_server sysfs_gesture:file { write open getattr read };
+
+allow qti_init_shell sysfs_gesture:file { write open getattr read };

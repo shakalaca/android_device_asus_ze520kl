@@ -1,0 +1,274 @@
+# init.asus.debug.rc
+#	Add by Thomas Chu
+#
+on fs
+
+    wait /dev/block/bootdevice/by-name/asdf
+    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev barrier=1
+    restorecon_recursive /asdf
+    
+on post-fs-data
+# ASUS_BSP +++ [thomas]Add logcat_log folder
+	mkdir /data/logcat_log 0775 system system
+# ASUS_BSP --- [thomas]Add logcat_log folder
+
+#ASUS_BSP+++ [thomas] Add asusdebug
+    chmod 0777 /proc/asusdebug
+    write /proc/asusdebug load
+    write /proc/asusdebug get_lastshutdown_log
+#ASUS_BSP--- [thomas] Add asusdebug
+
+
+    mkdir /data/log
+    mkdir /data/anr
+    mkdir /data/tombstones
+    mkdir /data/media/asus_log
+   
+    chown system system /data/log
+    chown system system /data/anr
+    chown system system /data/tombstones
+    chown sdcard_rw sdcard_rw /data/media/asus_log
+   
+#    chmod 0775 /data/log ==>move to init.asus.rc
+    chmod 0775 /data/anr
+    chmod 0775 /data/tombstones
+    chmod 0755 /data/media/asus_log
+    
+#enable zram
+    swapon_all fstab.qcom
+
+#service block start ...
+# ASUS_BSP+++ [thomas]Add asus_ramdump and asus_kernelmsg services
+service asus_ramdump /system/etc/init.asus.ramdump.sh
+	class late_start
+    user root
+    group root
+    disabled
+    oneshot
+on property:persist.asus.ramdump=0
+	start asus_ramdump
+
+on property:persist.asus.ramdump=1
+	start asus_ramdump
+
+service asus_kernelmsg /system/etc/init.asus.kernelmessage.sh
+	class late_start
+    user root
+    group root
+    disabled
+    oneshot
+	seclabel u:r:savelogmtp:s0	
+on property:persist.asus.kernelmessage=0
+	start asus_kernelmsg
+
+on property:persist.asus.kernelmessage=7
+	start asus_kernelmsg
+
+# ASUS_BSP--- [thomas]Add asus_ramdump and asus_kernelmsg services
+
+# ASUS_BSP+++ [thomas]Add savelogmtp services
+service piq_sh /system/etc/init.asus.piq.sh
+     user root
+     group root
+     disabled
+     oneshot
+
+on property:sys.boot_completed=1
+    start piq_sh
+
+service savelogmtp /system/etc/savelogmtp.sh
+    class late_start
+    user root
+    group sdcard_rw
+    oneshot
+    disabled
+seclabel u:r:dumpstate:s0
+# ASUS_BSP+++ [thomas]Add savelogmtp services
+
+service check-datalog /system/bin/sh /system/etc/init.asus.checkdatalog.sh
+    class late_start
+    user root 
+    oneshot
+seclabel u:r:savelogmtp:s0
+
+on property:persist.asus.startlog=1
+    setprop logd.klogd true
+    start check-datalog
+    start console
+    write /sys/module/msm_rtb/parameters/enable 1
+on property:persist.asus.startlog=0
+    setprop logd.klogd false
+    start check-datalog
+    stop  console
+    write /sys/module/msm_rtb/parameters/enable 0
+
+service saveramdump /system/etc/saveramdump.sh
+    class late_start
+    oneshot
+    disabled
+
+#log_main log_system
+service logcat /system/bin/logcat  -b kernel -b main -b system  -b crash -r 10000 -n 20 -v threadtime -f /data/logcat_log/logcat.txt -N
+	class late_start
+	user root
+	disabled
+seclabel u:r:savelogmtp:s0
+
+#log_radio
+service logcat-radio /system/bin/logcat -r 10000 -b radio -n 10 -v time -f /data/logcat_log/logcat-radio.txt
+	class late_start
+	disabled
+seclabel u:r:savelogmtp:s0
+
+#log_events
+service logcat-events /system/bin/logcat -r 10000 -b events -n 10 -v threadtime -f /data/logcat_log/logcat-events.txt
+	class late_start
+	disabled
+seclabel u:r:savelogmtp:s0
+
+service logcat-monkey /system/bin/logcat -b kernel -b main -b system -b crash -r 100000 -n 50 -v threadtime -f /data/logcat_log/monkey_logcat.txt
+	class late_start
+	disabled
+seclabel u:r:savelogmtp:s0
+
+#log_main to asdf folder
+service logcat-asdf /system/bin/logcat -b kernel -b main -b system  -b crash -r 10000 -n 2 -v threadtime -f /asdf/asdf-logcat.txt
+    class late_start
+    disabled
+seclabel u:r:savelogmtp:s0
+	
+service sendevtlog /system/bin/sh /system/etc/sendevtlog.sh
+    class late_start
+    oneshot
+    disabled
+
+service sendlogcatlog /system/bin/sh /system/etc/sendlogcatlog.sh
+    class late_start
+    oneshot
+    disabled	
+
+#ASUS_BSP: [ASDF] Check for LastShutdown Logs +++
+service check_last /system/bin/sh /system/etc/init.asus.check_last.sh
+    user root
+    disabled
+    oneshot
+#ASUS_BSP: [ASDF] Check for LastShutdown Logs ---
+#ASUS_BSP: [ASDF] Check for Abnormal Shutdown Logs +++
+service asus_chk_asdf /system/bin/sh /system/etc/init.asus.check_asdf.sh
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start asus_chk_asdf
+
+on property:persist.radio.check_asdf=*
+    start asus_chk_asdf
+#ASUS_BSP: [ASDF] Check for Abnormal Shutdown Logs ---
+
+service savelogs /system/etc/savelogs.sh
+	class late_start
+	user root
+	group sdcard_rw
+	oneshot
+	disabled
+seclabel u:r:savelogmtp:s0
+
+service savelogscomplete  /system/etc/savelogs_complete.sh
+	user root
+        group root
+	oneshot
+	disabled
+seclabel u:r:zygote:s0
+
+on property:persist.asus.savelogs.complete=1
+	start savelogscomplete
+on property:persist.asus.savelogs=*
+	start savelogs
+	
+#ASUS_BSP+++ jacob kung "[ZE500KL][restart][NA][NA] setup qpst download mode properity"
+on property:persist.sys.downloadmode.enable=1
+      write /sys/module/msm_poweroff/parameters/download_mode 1
+	  write /sys/module/printk/parameters/ramdump_enabled 1
+
+on property:persist.sys.downloadmode.enable=0
+      write /sys/module/msm_poweroff/parameters/download_mode 0
+	  write /sys/module/printk/parameters/ramdump_enabled 0
+#ASUS_BSP--- jacob kung "[ZE500KL][restart][NA][NA] setup qpst download mode properity"
+
+
+on property:persist.asus.checklogsize=*
+   start checklogsize
+
+service checklogsize /system/etc/init.asus.checklogsize.sh
+	class late_start
+	user root
+	group sdcard_rw
+	oneshot
+	disabled
+seclabel u:r:savelogmtp:s0
+
+# ASUS BSP: Cheryl Chen - Enable logcat for OOB +++
+on property:ro.boot.logcat=y
+	setprop sys.asus.check-data.caller "OOB"
+	start checkdatalog-oob
+
+service checkdatalog-oob /system/bin/sh /system/etc/init.asus.checkdatalog.sh
+	class late_start
+	user system
+	disabled
+	oneshot
+	seclabel u:r:system_app:s0
+
+# Main log for OOB
+service logcat-oob /system/bin/logcat -b kernel -b main -b system -b crash -r 10000 -n 3 -v threadtime -f /data/logcat_log/logcat-oob.txt
+	class late_start
+	user system
+	disabled
+	seclabel u:r:system_app:s0
+
+# Radio log for OOB
+service logcat-radio-oob /system/bin/logcat -r 10000 -b radio -n 3 -v time -f /data/logcat_log/logcat-radio-oob.txt
+	class late_start
+	user system
+	disabled
+	seclabel u:r:system_app:s0
+
+# Events log for OOB
+service logcat-event-oob /system/bin/logcat -r 10000 -b events -n 3 -v threadtime -f /data/logcat_log/logcat-event-oob.txt
+	class late_start
+	user system
+	disabled
+	seclabel u:r:system_app:s0
+# ASUS BSP: Cheryl Chen - Enable logcat for OOB ---
+
+service procrankdump /system/etc/procrankdump.sh
+    user root
+    group root
+    disabled
+    oneshot
+	seclabel u:r:savelogmtp:s0
+	
+service cscclearlog /system/bin/sh /system/etc/cscclearlog.sh
+    user root
+    group root
+    disabled
+    oneshot
+
+service execkernelevt /system/etc/execkernelevt.sh
+    user root
+    group root
+    disabled
+    oneshot
+	seclabel u:r:dumpstate:s0	
+
+#ASUS_BSP Johnny +++ "add tcpdump tool"
+# tcpdump_warp service to save tcpdump to /sdcard
+service tcpdump-warp /system/bin/sh /system/xbin/netlog.sh
+    class late_start
+    user root
+    group root
+    disabled
+#ASUS_BSP Johnny --- "add tcpdump tool"
+

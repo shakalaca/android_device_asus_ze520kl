@@ -1,0 +1,41 @@
+type asus_voucher, domain;
+type asus_voucher_exec, exec_type, file_type;
+type asus_wosinfo, domain;
+type asus_wosinfo_exec, exec_type, file_type;
+type asus_ssn, domain;
+type asus_ssn_exec, exec_type, file_type;
+type asus_sp, domain;
+type asus_sp_exec, exec_type, file_type;
+
+init_daemon_domain(asus_voucher);
+init_daemon_domain(asus_wosinfo);
+init_daemon_domain(asus_ssn);
+init_daemon_domain(asus_sp);
+
+allow asus_sp factory_file:dir { search };
+allow asus_sp factory_file:file { read open getattr };
+allow asus_sp property_socket:sock_file { write };
+allow asus_sp init:unix_stream_socket { connectto };
+allow asus_sp system_prop:property_service { set };
+allow asus_sp proc_meminfo:file { read open };
+allow asus_sp rootfs:file { entrypoint getattr read };
+
+allow asus_voucher factory_file:dir { search };
+allow asus_voucher factory_file:file { read open getattr };
+allow asus_voucher property_socket:sock_file { write };
+allow asus_voucher init:unix_stream_socket { connectto };
+allow asus_voucher system_prop:property_service { set };
+
+type sysinfo_block_device, dev_type;
+
+allow asus_wosinfo sysinfo_block_device:blk_file { write open getattr };
+allow asus_ssn factory_file:dir { search };
+allow asus_ssn factory_file:file { getattr read open };
+allow asus_ssn property_socket:sock_file { write };
+allow asus_ssn init:unix_stream_socket { connectto };
+allow asus_ssn system_prop:property_service { set };
+allow asus_ssn config_prop:property_service { set };
+
+type asusfw_block_device, dev_type;
+
+allow init sysinfo_block_device:blk_file { setattr };

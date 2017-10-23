@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="shakalaca/android_device_asus_Z017" path="device/asus/Z017" remote="github" revision="cm-14.1" />
+  <project name="shakalaca/android_kernel_asus_ze520kl" path="kernel/asus/Z017" remote="github" revision="android-7.0" />
+  <project name="shakalaca/android_hardware_qcom_audio-caf_msm8996_asus" path="hardware/qcom/audio-caf/msm8996/legacy" remote="github" revision="master" />
+</manifest>

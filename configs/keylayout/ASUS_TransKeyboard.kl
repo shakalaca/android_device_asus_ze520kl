@@ -1,0 +1,305 @@
+#From Z:\Project\CLVP_JB_WW12\frameworks\base\data\keyboards\Generic.kl
+key 1     ESCAPE             UNLOCK
+key 2     1                  UNLOCK
+key 3     2                  UNLOCK
+key 4     3                  UNLOCK
+key 5     4                  UNLOCK
+key 6     5                  UNLOCK
+key 7     6                  UNLOCK
+key 8     7                  UNLOCK
+key 9     8                  UNLOCK
+key 10    9                  UNLOCK
+key 11    0                  UNLOCK
+key 12    MINUS              UNLOCK
+key 13    EQUALS             UNLOCK
+key 14    DEL                UNLOCK
+key 15    TAB                UNLOCK
+key 16    Q                  UNLOCK
+key 17    W                  UNLOCK
+key 18    E                  UNLOCK
+key 19    R                  UNLOCK
+key 20    T                  UNLOCK
+key 21    Y                  UNLOCK
+key 22    U                  UNLOCK
+key 23    I                  UNLOCK
+key 24    O                  UNLOCK
+key 25    P                  UNLOCK
+key 26    LEFT_BRACKET       UNLOCK    
+key 27    RIGHT_BRACKET      UNLOCK     
+key 28    ENTER              UNLOCK
+key 29    CTRL_LEFT          UNLOCK
+key 30    A                  UNLOCK
+key 31    S                  UNLOCK
+key 32    D                  UNLOCK
+key 33    F                  UNLOCK
+key 34    G                  UNLOCK
+key 35    H                  UNLOCK
+key 36    J                  UNLOCK
+key 37    K                  UNLOCK
+key 38    L                  UNLOCK
+key 39    SEMICOLON          UNLOCK
+key 40    APOSTROPHE         UNLOCK
+key 41    GRAVE              UNLOCK
+key 42    SHIFT_LEFT         UNLOCK
+key 43    BACKSLASH          UNLOCK
+key 44    Z                  UNLOCK
+key 45    X                  UNLOCK
+key 46    C                  UNLOCK
+key 47    V                  UNLOCK
+key 48    B                  UNLOCK
+key 49    N                  UNLOCK
+key 50    M                  UNLOCK
+key 51    COMMA              UNLOCK
+key 52    PERIOD            
+key 53    SLASH              UNLOCK
+key 54    SHIFT_RIGHT        UNLOCK
+key 55    NUMPAD_MULTIPLY
+key 56    ALT_LEFT           UNLOCK
+key 57    SPACE              UNLOCK
+key 58    CAPS_LOCK          UNLOCK
+key 59    F1                 UNLOCK
+key 60    F2                 UNLOCK
+key 61    F3                 UNLOCK
+key 62    F4                 UNLOCK
+key 63    F5                 UNLOCK
+key 64    F6                 UNLOCK
+key 65    F7                 UNLOCK
+key 66    F8                 UNLOCK
+key 67    F9                 UNLOCK
+key 68    F10                UNLOCK
+key 69    NUM_LOCK           UNLOCK
+key 70    SCROLL_LOCK        UNLOCK
+key 71    NUMPAD_7           UNLOCK
+key 72    NUMPAD_8           UNLOCK
+key 73    NUMPAD_9           UNLOCK
+key 74    MINUS              UNLOCK
+key 75    NUMPAD_4           UNLOCK
+key 76    NUMPAD_5           UNLOCK
+key 77    NUMPAD_6           UNLOCK
+key 78    NUMPAD_ADD         UNLOCK
+key 79    NUMPAD_1           UNLOCK
+key 80    NUMPAD_2           UNLOCK
+key 81    NUMPAD_3           UNLOCK
+key 82    NUMPAD_0           UNLOCK
+key 83    NUMPAD_DOT         UNLOCK
+
+key 85    ZENKAKU_HANKAKU
+key 86    BACKSLASH          UNLOCK
+key 87    F11                UNLOCK
+key 88    F12                UNLOCK
+key 89    RO                 UNLOCK
+
+key 92    HENKAN             UNLOCK
+key 93    KATAKANA_HIRAGANA
+key 94    MUHENKAN           UNLOCK
+key 95    NUMPAD_COMMA      
+key 96    NUMPAD_ENTER       UNLOCK
+key 97    CTRL_RIGHT         UNLOCK
+key 98    NUMPAD_DIVIDE      UNLOCK
+key 99    CAPTURE
+key 100   ALT_RIGHT          UNLOCK
+
+key 102   MOVE_HOME          UNLOCK
+key 103   DPAD_UP            UNLOCK
+key 104   PAGE_UP            UNLOCK
+key 105   DPAD_LEFT          UNLOCK
+key 106   DPAD_RIGHT         UNLOCK
+key 107   MOVE_END           UNLOCK
+key 108   DPAD_DOWN          UNLOCK
+key 109   PAGE_DOWN          UNLOCK
+key 110   INSERT             UNLOCK
+key 111   FORWARD_DEL
+
+key 113   VOLUME_MUTE        UNLOCK
+key 114   VOLUME_DOWN        UNLOCK
+key 115   VOLUME_UP          UNLOCK
+key 116   POWER              UNLOCK
+key 117   NUMPAD_EQUALS      UNLOCK
+
+key 119   BREAK
+
+key 121   NUMPAD_COMMA
+key 122   KANA
+key 123   EISU
+key 124   YEN                UNLOCK
+key 125   META_LEFT          UNLOCK
+key 126   META_RIGHT         UNLOCK
+key 127   MENU              
+key 128   MEDIA_STOP         UNLOCK
+
+key 139   MENU              
+key 140   CALCULATOR         UNLOCK
+
+key 142   POWER              UNLOCK
+key 143   POWER              UNLOCK
+
+key 150   EXPLORER
+
+key 152   POWER              UNLOCK
+
+key 155   ENVELOPE
+key 156   BOOKMARK
+
+key 158   BACK              
+key 159   FORWARD            UNLOCK
+key 160   MEDIA_CLOSE
+key 161   MEDIA_EJECT
+key 162   MEDIA_EJECT
+key 163   MEDIA_NEXT
+key 164   MEDIA_PLAY_PAUSE
+key 165   MEDIA_PREVIOUS
+key 166   MEDIA_STOP
+key 167   MEDIA_RECORD
+key 168   MEDIA_REWIND
+key 169   CALL
+
+key 171   MUSIC              UNLOCK
+key 172   HOME               UNLOCK
+
+key 177   PAGE_UP            UNLOCK
+key 178   PAGE_DOWN          UNLOCK
+key 179   NUMPAD_LEFT_PAREN
+key 180   NUMPAD_RIGHT_PAREN
+
+key 200   MEDIA_PLAY         UNLOCK
+key 201   MEDIA_PAUSE        UNLOCK
+
+key 207   MEDIA_PLAY
+key 208   MEDIA_FAST_FORWARD
+
+key 212   CAMERA             UNLOCK
+key 213   MUSIC              UNLOCK
+
+key 215   ENVELOPE
+
+key 217   SEARCH             UNLOCK
+
+key 233   HEADSETHOOK
+
+key 256   BUTTON_1
+key 257   BUTTON_2
+key 258   BUTTON_3
+key 259   BUTTON_4
+key 260   BUTTON_5
+key 261   BUTTON_6
+key 262   BUTTON_7
+key 263   BUTTON_8
+key 264   BUTTON_9
+key 265   BUTTON_10
+key 266   BUTTON_11
+key 267   BUTTON_12
+key 268   BUTTON_13
+key 269   BUTTON_14
+key 270   BUTTON_15
+key 271   BUTTON_16
+
+key 288   BUTTON_1
+key 289   BUTTON_2
+key 290   BUTTON_3
+key 291   BUTTON_4
+key 292   BUTTON_5
+key 293   BUTTON_6
+key 294   BUTTON_7
+key 295   BUTTON_8
+key 296   BUTTON_9
+key 297   BUTTON_10
+key 298   BUTTON_11
+key 299   BUTTON_12
+key 300   BUTTON_13
+key 301   BUTTON_14
+key 302   BUTTON_15
+key 303   BUTTON_16
+
+
+key 304   BUTTON_A
+key 305   BUTTON_B
+key 306   BUTTON_C
+key 307   BUTTON_X
+key 308   BUTTON_Y
+key 309   BUTTON_Z
+key 310   BUTTON_L1
+key 311   BUTTON_R1
+key 312   BUTTON_L2
+key 313   BUTTON_R2
+key 314   BUTTON_SELECT
+key 315   BUTTON_START
+key 316   BUTTON_MODE
+key 317   BUTTON_THUMBL
+key 318   BUTTON_THUMBR
+
+
+
+key 353   DPAD_CENTER
+
+key 362   GUIDE
+
+key 366   DVR
+
+key 377   TV
+
+key 397   CALENDAR
+
+key 402   CHANNEL_UP         UNLOCK
+key 403   CHANNEL_DOWN       UNLOCK
+
+
+key 429   CONTACTS
+
+
+
+key 464   FUNCTION
+key 465   ESCAPE            FUNCTION
+key 466   F1                FUNCTION
+key 467   F2                FUNCTION
+key 468   F3                FUNCTION
+key 469   F4                FUNCTION
+key 470   F5                FUNCTION
+key 471   F6                FUNCTION
+key 472   F7                FUNCTION
+key 473   F8                FUNCTION
+key 474   F9                FUNCTION
+key 475   F10               FUNCTION
+key 476   F11               FUNCTION
+key 477   F12               FUNCTION
+key 478   1                 FUNCTION
+key 479   2                 FUNCTION
+key 480   D                 FUNCTION
+key 481   E                 FUNCTION
+key 482   F                 FUNCTION
+key 483   S                 FUNCTION
+key 484   B                 FUNCTION
+
+
+# Joystick and game controller axes.
+# Axes that are not mapped will be assigned generic axis numbers by the input subsystem.
+axis 0x00 X
+axis 0x01 Y
+axis 0x02 Z
+axis 0x03 RX
+axis 0x04 RY
+axis 0x05 RZ
+axis 0x06 THROTTLE
+axis 0x07 RUDDER
+axis 0x08 WHEEL
+axis 0x09 GAS
+axis 0x0a BRAKE
+axis 0x10 HAT_X
+axis 0x11 HAT_Y
+
+
+key 194     TOUCHPAD              UNLOCK
+key 193     BRIGHTNESS_AUTO       UNLOCK
+key 192     FLIGHT_MODE_SWITCH    UNLOCK
+key 191     MODE_SWITCH           UNLOCK
+key 190     SPLENDID              UNLOCK
+key 189     NO_FUNC               UNLOCK
+key 188     BASE_ATTACH           UNLOCK
+key 187     BASE_DETACH           UNLOCK
+key 186     SWITCH_ANDROID        UNLOCK
+key 185     LAUNCH_CAMERA         UNLOCK
+key 184     CAPTURE               UNLOCK
+key 238     WIRELESS              UNLOCK
+key 224     BRIGHTNESS_DOWN       UNLOCK
+key 225     BRIGHTNESS_UP         UNLOCK
+key 245     SCREENOFF             UNLOCK
+

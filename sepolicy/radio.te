@@ -1,0 +1,2 @@
+allow radio unlabeled:dir { search };
+allow radio net_radio_prop:property_service { set };

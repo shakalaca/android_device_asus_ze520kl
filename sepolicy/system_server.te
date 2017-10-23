@@ -1,0 +1,5 @@
+allow system_server factory_file:file { open read };
+allow system_server proc:file { append };
+allow system_server factory_file:dir { search };
+
+allow system_server asus_fingerprint_service:service_manager find;

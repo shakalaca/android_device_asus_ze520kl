@@ -1,0 +1,26 @@
+type asus_fingerprint, domain;
+type asus_fingerprint_exec, exec_type, file_type;
+type asus_fingerprint_device, dev_type;
+
+allow qti_init_shell tee_device:chr_file { ioctl read write open };
+allow qti_init_shell asus_fingerprint_device:chr_file { read write open ioctl };
+allow qti_init_shell device:chr_file { ioctl };
+allow qti_init_shell asus_fingerprint_exec:file { read open getattr execute execute_no_trans };
+
+binder_call(fingerprintd, qti_init_shell)
+binder_call(qti_init_shell, fingerprintd)
+binder_call(system_app, fingerprintd)
+binder_call(fingerprintd, system_app)
+
+allow init asus_fingerprint_exec:file { getattr };
+
+allow fingerprintd asus_fingerprint_service:service_manager { add find };
+allow asus_fingerprint asus_fingerprint_service:service_manager { add find };
+#allow qti_init_shell default_android_service:service_manager { add find };
+allow qti_init_shell asus_fingerprint_service:service_manager { add find };
+
+# others ..
+binder_call(qti_init_shell, servicemanager)
+allow servicemanager qti_init_shell:dir { search };
+allow servicemanager qti_init_shell:file { open read };
+allow servicemanager qti_init_shell:process { getattr };

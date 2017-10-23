@@ -1,0 +1,25 @@
+# Default type for anything under /asdf.
+type log_file, file_type;
+
+# Default type for anything under /factory.
+type factory_file, file_type;
+
+# Default type for anything under /APD, /ADF
+type demoapp_file, file_type;
+
+type proc_evtlog, file_type;
+type proc_asus_debug, file_type;
+
+allow init log_file:dir { mounton };
+allow init factory_file:dir { mounton };
+allow init demoapp_file:dir { mounton };
+
+allow qti_init_shell factory_file:file { read open getattr };
+allow qti_init_shell factory_file:dir { search };
+allow qti_init_shell log_file:file { open write getattr setattr read };
+allow qti_init_shell log_file:dir { read open getattr search write add_name };
+
+allow system_server proc_evtlog:file { append open getattr };
+allow thermal-engine proc_evtlog:file { read write open };
+
+allow rild proc_evtlog:file { write read open getattr };

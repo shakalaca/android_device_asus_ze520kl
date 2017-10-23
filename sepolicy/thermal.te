@@ -1,0 +1,8 @@
+allow thermal-engine property_socket:sock_file { write };
+allow thermal-engine init:unix_stream_socket { connectto };
+allow thermal-engine system_prop:property_service { set };
+allow thermal-engine proc:file { write };
+
+#
+allow qti_init_shell system_data_file:lnk_file { create };
+#allow qti_init_shell system_data_file:file { open write setattr };

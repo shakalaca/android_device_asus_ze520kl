@@ -1,0 +1,69 @@
+<configs>
+<!--
+
+    1:  (float)     h_default
+    2:  (float)     s_default
+    3:  (float)     i_default
+    4:  (float)     h_max
+    5:  (float)     h_min
+    6:  (float)     s_max
+    7:  (float)     s_min
+    8:  (float)     i_max
+    9:  (float)     i_min
+(deprecated)10: (int)       gamma_default
+(deprecated)11: (int)       gamma_max
+(deprecated)12: (int)       gamma_min
+    13: (float)     h_step
+    14: (float)     s_step
+    15: (float)     i_step
+(deprecated)16: (int)       gamma_step
+    17: (boolean)   is_vivid_default
+
+    /* command related */
+    18: (int )      advance_ui_mode, 0: no advance 1: seek bar 2: 2-dimension color panel
+
+    /* command related */
+    19: (boolean)   independent_vivid_hsv
+
+    /* sharedpreference related */
+    20: (boolean)   is_two_panel
+
+    /* command related */
+    21: (boolean)   need_both_gamma_and_hsv, For nvidia Tegra4, use 3x3 matrix to do color enhancement and color temperature adjustment
+
+
+    Important:
+    1. Return specified product config, or the default ME302C config.
+
+    2. step is related to max and min,
+       for example:
+           If you want H value to support 20 levels with max to 5 and min to -5,
+           you should set step to (5-(-5))/20 = 0.5
+
+    3. Do not change attribute order of config
+
+-->
+
+        <config
+        product="Leo"
+        h_default="0"
+        s_default="0"
+        i_default="0"
+        h_max="128"
+        h_min="-128"
+        s_max="52"
+        s_min="-52"
+        i_max="1"
+        i_min="-1"
+        h_step="12.8"
+        s_step="5.2"
+        i_step="0.1"
+        is_vivid_default="false"
+        advance_ui_mode="1"
+        independent_vivid_hsv="false"
+        is_two_panel="false"
+        need_both_gamma_and_hsv="false"
+        is_support_gamut_mapping ="false"
+        should_hide_launcher_icon = "false">ZE520KL
+    </config>
+</configs>

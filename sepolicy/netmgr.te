@@ -1,0 +1,5 @@
+type netmgr_log, file_type;
+
+#allow netmgrd system_data_file:file { open };
+allow netmgrd netmgr_log:file { write open read getattr create };
+allow netmgrd netmgr_log:dir { search write add_name };

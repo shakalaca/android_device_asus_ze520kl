@@ -1,0 +1,3 @@
+allow hostapd diag_device:chr_file { read write };
+allow hostapd cnd:unix_dgram_socket { read write };
+allow init hostapd_exec:file { getattr };

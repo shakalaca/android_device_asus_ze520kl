@@ -1,0 +1,7 @@
+allow wcnss_service wcnss_service:capability { setgid setuid };
+allow wcnss_service factory_file:dir { search };
+allow wcnss_service factory_file:file { getattr read open };
+allow wcnss_service sdcardfs:dir { search read open };
+allow wcnss_service sdcardfs:file { read append open };
+allow wcnss_service media_rw_data_file:dir { search read open };
+allow wcnss_service media_rw_data_file:file { read append open };

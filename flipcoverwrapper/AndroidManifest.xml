@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.corner23.android.flipcovershell"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name">
+        <activity
+            android:name="com.corner23.android.flipcovershell.MainActivity"
+            android:label="@string/app_name"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.corner23.android.flipcovershell.LidStateReceiver">
+            <intent-filter>
+                <action android:name="cyanogenmod.intent.action.LID_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.corner23.android.flipcovershell.FlipCoverService"
+                 android:exported="false"/>
+    </application>
+
+</manifest>

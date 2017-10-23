@@ -1,0 +1,204 @@
+on init
+    write /sys/class/android_usb/android0/f_rndis/wceis 1
+    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+
+on charger
+    setprop sys.usb.config mtp
+
+on fs
+    mkdir /dev/usb-ffs 0770 shell shell
+    mkdir /dev/usb-ffs/adb 0770 shell shell
+    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
+    write /sys/class/android_usb/android0/f_ffs/aliases adb
+
+service qcom-usb-sh /system/bin/sh /init.qcom.usb.sh
+    class core
+    user root
+    oneshot
+
+service asus-usb-sh /system/bin/sh /init.asus.usb.sh
+    class main
+    user root
+    oneshot
+
+#
+on property:sys.usb.config=rndis
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7782
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=rndis,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7783
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd    
+    setprop sys.usb.state ${sys.usb.config}
+#
+on property:sys.usb.config=mtp
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7780
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7781
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd    
+    setprop sys.usb.state ${sys.usb.config}
+#
+on property:sys.usb.config=ptp
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7784
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=ptp,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7785
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd    
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=midi 
+	write /sys/class/android_usb/android0/enable 0 
+	write /sys/class/android_usb/android0/idVendor 0B05
+	write /sys/class/android_usb/android0/idProduct 7786 
+	write /sys/class/android_usb/android0/functions ${sys.usb.config} 
+	write /sys/class/android_usb/android0/enable 1 
+	setprop sys.usb.state ${sys.usb.config} 
+
+on property:sys.usb.config=midi,adb 
+	stop adbd 
+	write /sys/class/android_usb/android0/enable 0 
+	write /sys/class/android_usb/android0/idVendor 0B05 
+	write /sys/class/android_usb/android0/idProduct 7787 
+	write /sys/class/android_usb/android0/functions ${sys.usb.config}
+	write /sys/class/android_usb/android0/enable 1 
+	start adbd 
+	setprop sys.usb.state ${sys.usb.config} 
+
+on property:sys.usb.config=adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 4DAE
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd    
+    setprop sys.usb.state ${sys.usb.config}
+#
+on property:sys.usb.config=rndis,mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7782
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=rndis,adb,mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7783
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd    
+    setprop sys.usb.state ${sys.usb.config}
+#
+on property:sys.usb.config=mtp,mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7780
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb,mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7781
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd    
+    setprop sys.usb.state ${sys.usb.config}
+#
+on property:sys.usb.config=ptp,mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7784
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=ptp,adb,mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 7785
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd    
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=midi,mass_storage
+	write /sys/class/android_usb/android0/enable 0
+	write /sys/class/android_usb/android0/idVendor 0B05
+	write /sys/class/android_usb/android0/idProduct 7786
+	write /sys/class/android_usb/android0/functions ${sys.usb.config}
+	write /sys/class/android_usb/android0/enable 1
+	setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=midi,adb,mass_storage
+	write /sys/class/android_usb/android0/enable 0
+	write /sys/class/android_usb/android0/idVendor 0B05
+	write /sys/class/android_usb/android0/idProduct 7787
+	write /sys/class/android_usb/android0/functions ${sys.usb.config}
+	write /sys/class/android_usb/android0/enable 1
+	start adbd
+	setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=adb,mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0B05
+    write /sys/class/android_usb/android0/idProduct 4DAE
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd    
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.fastboot=1
+    write /sys/class/android_usb/android0/enable 0
+
+on property:sys.usb.fastboot=0
+    write /sys/class/android_usb/android0/enable 1
+
+#ASUS_BSP+++ Landice "[ZE500KL][USBH][NA][Spec] Enable manual mode switching"
+on property:persist.sys.usb.otg.mode=host
+    setprop sys.usb.otg.mode host
+
+on property:persist.sys.usb.otg.mode=peripheral
+    setprop sys.usb.otg.mode peripheral
+
+on property:persist.sys.usb.otg.mode=auto
+    setprop sys.usb.otg.mode auto
+
+on property:sys.usb.otg.mode=host
+    write /proc/msm_otg/mode host
+
+on property:sys.usb.otg.mode=peripheral
+    write /proc/msm_otg/mode peripheral
+
+on property:sys.usb.otg.mode=auto
+    write /proc/msm_otg/mode auto
+#ASUS_BSP--- Landice "[ZE500KL][USBH][NA][Spec] Enable manual mode switching"

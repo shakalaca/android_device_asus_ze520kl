@@ -1,0 +1,10 @@
+allow kernel log_file:dir create_dir_perms;
+allow kernel log_file:file create_file_perms;
+
+allow kernel factory_file:file { read open };
+allow kernel factory_file:dir { search };
+allow kernel self:capability { chown };
+
+allow init system_file:system { module_load };
+
+allow qti_init_shell kmsg_device:chr_file { write };

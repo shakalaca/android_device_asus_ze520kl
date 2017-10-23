@@ -1,0 +1,11 @@
+allow sdcardd unlabeled:dir { getattr open read search };
+allow sdcardd unlabeled:file { open read getattr };
+allow sdcardd unlabeled:filesystem { getattr };
+
+allow platform_app unlabeled:dir { getattr open read search write };
+allow platform_app unlabeled:file { open read getattr write };
+allow platform_app unlabeled:filesystem { getattr };
+
+allow priv_app unlabeled:dir { getattr open read search };
+allow priv_app unlabeled:file { open read getattr };
+allow priv_app unlabeled:filesystem { getattr };
